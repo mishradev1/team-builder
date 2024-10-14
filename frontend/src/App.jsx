@@ -1,27 +1,16 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Header from './component/header'
+import React from 'react'
+import ValorantHeader from './component/header'
+import ValorantMainContent from './component/Content'
+import ValorantNav from './component/Nav'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCount(prevCount => prevCount + 1)
-    }, 1000)
-
-    return () => clearInterval(timer)
-    
-  }, [count])
-
+export default function App() {
   return (
-    <>
-    <h1 className='text-3xl bg-blue-700 p-5'>Welcome to React</h1>
-    <Header/>
-    </>
+    <div className="min-h-screen flex flex-col bg-black text-white">
+      <ValorantHeader />
+      <ValorantNav />
+      <main className="flex-grow">
+        <ValorantMainContent />
+      </main>
+    </div>
   )
 }
-
-export default App
