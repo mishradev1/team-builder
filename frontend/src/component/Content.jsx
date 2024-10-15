@@ -3,7 +3,7 @@ import { Search } from 'lucide-react'
 
 export default function ValorantMainContent() {
   return (
-    <div className="bg-cover bg-center min-h-screen" style={{backgroundImage: "url('/placeholder.svg?height=1080&width=1920')"}}>
+    <div className="bg-cover bg-center min-h-screen" style={{backgroundImage: "url('frontend/src/assets/Valorant.png')"}}>
       <div className="bg-black bg-opacity-70 min-h-screen p-6 text-white flex flex-col items-center">
         <div className="max-w-4xl w-full text-center">
           <h2 className="text-2xl font-bold mb-4">SEARCH FOR A PLAYER</h2>
