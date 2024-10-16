@@ -51,7 +51,7 @@ export default function ValorantMainContent() {
               </button>
               <div className="relative">
                 <img 
-                  src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1728946258/card_i4im3y.png" 
+                  src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729101162/Lineups_onh5ju.png" 
                   alt="Lineups section" 
                   className="w-full h-30 rounded-lg"
                 />
@@ -62,7 +62,7 @@ export default function ValorantMainContent() {
             </div>
             <div className="relative">
               <img 
-                src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1728946258/card_i4im3y.png" 
+                src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729101162/Insights_xaxscw.png" 
                 alt="Insights section" 
                 className="w-full h-30 rounded-lg"
               />
