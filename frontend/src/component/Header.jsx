@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ValorantHeader() {
+export default function Header() {
   return (
     <header className="bg-gradient-to-r from-orange-900 to-red-700 text-black p-4 flex items-center">
       <div className="flex-shrink-0 mr-4">

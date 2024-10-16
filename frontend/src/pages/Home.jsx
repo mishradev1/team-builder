@@ -1,12 +1,12 @@
 import React from 'react'
-import ValorantHeader from './component/header'
-import ValorantMainContent from './component/Content'
-import ValorantNav from './component/Nav'
+import Header from "../component/Header";
+import ValorantMainContent from '../component/Content'
+import ValorantNav from '../component/Nav'
 
-function Home() {
+export const Home = () => {
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
-      <ValorantHeader />
+      <Header />
       <ValorantNav />
       <main className="flex-grow">
         <ValorantMainContent />
@@ -15,4 +15,3 @@ function Home() {
   )
 }
 
-export default Home

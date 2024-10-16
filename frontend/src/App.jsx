@@ -1,16 +1,18 @@
 import React from 'react'
-import ValorantHeader from './component/header'
-import ValorantMainContent from './component/Content'
-import ValorantNav from './component/Nav'
-
-export default function App() {
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Home } from "./pages/Home"
+const App = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-black text-white">
-      <ValorantHeader />
-      <ValorantNav />
-      <main className="flex-grow">
-        <ValorantMainContent />
-      </main>
-    </div>
+    <Router>
+      <div className="min-h-screen flex flex-col bg-black text-white">
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   )
 }
+
+export default App
