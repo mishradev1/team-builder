@@ -2,15 +2,15 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <header className="bg-gradient-to-r from-orange-900 to-red-700 text-black p-4 flex items-center">
+    <header className="bg-cover bg-center text-black p-4 flex items-center" style={{backgroundImage: "url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729155085/bg5_wamxl3.jpg')"}}>
       <div className="flex-shrink-0 mr-4">
         <div className="bg-black p-2 inline-block">
           <img 
             src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1728972093/logo_fifcjl.png" 
             alt="Valorant Logo" 
-            className="h-12 w-38"
+            className="h-12 w-39"
           />
-          <div className="text-white text-xs font-bold mt-1">TEAM-BUILDER</div>
+          <div className="text-white text-xs font-bold mt-1 ml-2 justify-center items-center">TEAM-BUILDER</div>
         </div>
       </div>
       <div className="flex-grow ml-8">

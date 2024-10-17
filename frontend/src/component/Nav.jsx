@@ -37,7 +37,7 @@ export default function ValorantNav() {
           <div key={item.name} className="relative">
             <button
               onClick={() => handleDropdownToggle(index)}
-              className="w-40 h-10 bg-red-700 text-white px-4 py-2 rounded-full flex items-center justify-between text-sm font-bold hover:bg-red-800 transition-colors duration-200"
+              className="w-40 h-10 bg-red-700 text-black px-4 py-2 rounded-full flex items-center justify-between text-sm font-bold hover:bg-red-800 transition-colors duration-200"
               style={{ fontFamily: "'Courier New', monospace", letterSpacing: '0.05em' }}
             >
               {item.name}
