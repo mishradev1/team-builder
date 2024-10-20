@@ -29,7 +29,7 @@ export default function ValorantMainContent() {
             <button className="bg-red-600 text-black px-4 py-2 rounded-full hover:bg-red-700" style={{ fontFamily: "'Courier New'"}}>
               SIGN IN WITH RIOT ID
             </button>
-            <button className="bg-blue-500 text-white px-4 py-2 flex items-center border-2 border-white">
+            <button className="bg-blue-500 text-white px-4 py-2 flex items-center border-2 border-white hover:bg-blue-700">
               <img src="https://as1.ftcdn.net/v2/jpg/03/88/07/84/1000_F_388078454_mKtbdXYF9cyQovCCTsjqI0gbfu7gCcSp.jpg" alt="Google logo" className="w-5 h-5 mr-2" />
               Sign in with Google
             </button>

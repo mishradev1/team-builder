@@ -4,13 +4,12 @@ export default function Header() {
   return (
     <header className="bg-cover bg-center text-black p-4 flex items-center" style={{backgroundImage: "url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729155085/bg5_wamxl3.jpg')"}}>
       <div className="flex-shrink-0 mr-4">
-        <div className="bg-black p-2 inline-block">
+        <div className="bg-black p-0 inline-block">
           <img 
-            src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1728972093/logo_fifcjl.png" 
+            src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729416747/logo_ijecpr.png" 
             alt="Valorant Logo" 
-            className="h-12 w-39"
+            className="h-22 w-40"
           />
-          <div className="text-white text-xs font-bold mt-1 ml-2 justify-center items-center">TEAM-BUILDER</div>
         </div>
       </div>
       <div className="flex-grow ml-8">
