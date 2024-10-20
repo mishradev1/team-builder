@@ -18,7 +18,7 @@ export default function SignupPage() {
       </div>
       
       <div className="bg-green-900 bg-opacity-90 rounded-[70px] p-8 w-[500px] shadow-lg border-4 border-green-400 relative mt-9">
-        <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729421385/signup-bg_mx7art.png')] bg-center bg-no-repeat opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729449934/signup-bg_jz17r3.png')] bg-center bg-no-repeat opacity-10"></div>
         <h2 className="text-2xl font-bold text-green-400 text-center mb-6">SIGN-UP:TEAM BUILDER</h2>
         <div className="flex justify-center mb-6 relative">
           <div className="">
@@ -39,43 +39,43 @@ export default function SignupPage() {
             <input 
               type="text" 
               placeholder="LAST NAME" 
-              className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-100 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
           
           <input 
             type="email" 
             placeholder="EMAIL" 
-            className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-100 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
           />
           
           <input 
             type="tel" 
             placeholder="PHONE NUMBER" 
-            className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-100 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
           />
           
           <input 
             type="date" 
             placeholder="DATE OF BIRTH" 
-            className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-100 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
           />
           
           <div className="grid grid-cols-2 gap-4">
             <input 
               type="text" 
               placeholder="RIOT ID" 
-              className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-100 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <input 
               type="text" 
               placeholder="#TAGLINE" 
-              className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-100 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
           
           <select 
-            className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
           >
             <option value="">SELECT YOUR REGION</option>
             <option value="na">North America</option>
@@ -87,7 +87,7 @@ export default function SignupPage() {
             <input 
               type={showPassword ? "text" : "password"}
               placeholder="SET A PASSWORD" 
-              className="ring-2 ring-green-500 w-full py-2 pr-10 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-100 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="ring-2 ring-green-500 w-full py-2 pr-10 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <button
               type="button"
