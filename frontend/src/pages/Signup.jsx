@@ -34,7 +34,7 @@ export default function SignupPage() {
             <input 
               type="text" 
               placeholder="FIRST NAME" 
-              className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-100 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <input 
               type="text" 
