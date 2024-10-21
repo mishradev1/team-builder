@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 
 const PlayerCard = ({ image, level, username, color, className }) => (
   <div className={`rounded-lg overflow-hidden relative ${className}`}>
-    <img src={image} alt={username} className="w-full h-full object-cover" />
+    <img src={image} alt={username} className="w-[150px] h-[150px] object-cover" />
     <div className="absolute top-2 left-2 bg-black bg-opacity-0 px-2 py-1 rounded">
-      <span className="text-white text-xs font-bold flex justify-center ml-40">LEVEL</span>
+      <span className="text-white text-xs font-bold flex justify-center ml-4">LEVEL</span>
       {/* <img src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530434/img3_wzzpe9.png" alt="Level" className="inline-block ml-1 w-5 h-5" /> */}
     </div>
-    <div className="absolute bottom-2 left-2 right-2 bg-black bg-opacity-0 px-2 py-1 rounded ml-40">
+    <div className="absolute bottom-2 left-2 right-2 bg-black bg-opacity-0 px-2 py-1 rounded ml-4">
       <span className="text-white text-sm font-bold">{username}</span>
     </div>
   </div>
@@ -18,11 +18,11 @@ const PlayerCard = ({ image, level, username, color, className }) => (
 export default function LobbyPage() {
   const navItems = ['TRACKER', 'ARSENAL', 'MORE', 'DOWNLOAD']
   const players = [
-    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530434/img3_wzzpe9.png', level: 1, username: 'USERNAME', color: 'pink' },
-    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530434/img3_wzzpe9.png', level: 1, username: 'USERNAME', color: 'blue' },
+    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729532856/img1_jiui9q.png', level: 1, username: 'USERNAME', color: 'pink' },
+    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729533050/img2_oom9xn.png', level: 1, username: 'USERNAME', color: 'blue' },
     { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530434/img3_wzzpe9.png', level: 1, username: 'USERNAME', color: 'green' },
-    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530434/img3_wzzpe9.png', level: 1, username: 'USERNAME', color: 'purple' },
-    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530434/img3_wzzpe9.png', level: 1, username: 'USERNAME', color: 'orange' },
+    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729533050/img4_x3zi2n.png', level: 1, username: 'USERNAME', color: 'purple' },
+    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729533050/img5_nsszls.png', level: 1, username: 'USERNAME', color: 'orange' },
   ]
 
   return (
@@ -47,15 +47,15 @@ export default function LobbyPage() {
             </button>
           ))}
         </nav>
-        <div className="relative max-w-3xl mx-auto">
-          <img src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png" alt="Central Character" className="mx-auto w-1/2" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="grid grid-cols-12 gap-4 w-full h-full">
-              <PlayerCard {...players[0]} className="col-span-4 row-span-2 z-10" />
+        <div className="relative max-w-3xl mx-72">
+          {/* <img src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png" alt="Central Character" className="mx-auto w-1/2" /> */}
+          <div className="absolute flex items-center justify-center p-9">
+            <div className="grid grid-cols-12 gap-20">
+              <PlayerCard {...players[0]} className="col-start-1 col-span-4 row-start-1 row-span-2 z-20" />
               <PlayerCard {...players[1]} className="col-start-3 col-span-4 row-start-2 row-span-2 z-20" />
               <PlayerCard {...players[2]} className="col-start-5 col-span-4 row-start-3 row-span-2 z-30" />
               <PlayerCard {...players[3]} className="col-start-7 col-span-4 row-start-2 row-span-2 z-20" />
-              <PlayerCard {...players[4]} className="col-start-9 col-span-4 row-span-2 z-10" />
+              <PlayerCard {...players[4]} className="col-start-9 col-span-4 row-start-1 row-span-2 z-10" />
             </div>
           </div>
         </div>
