@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { User, Lock, Eye, EyeOff } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function LoginPage() {
 
@@ -8,13 +9,13 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-cover bg-center flex items-center justify-center relative" style={{backgroundImage: "url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1728972096/bg1_u5arhl.jpg')"}}>
       <div className="absolute top-4 left-4">
-        <div className="bg-black inline-block rounded">
+        <Link to='/' className="bg-black inline-block rounded p-1">
           <img 
             src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729416747/logo_ijecpr.png" 
             alt="Valorant Logo" 
             className="h-26 w-40 object-contain"
           />
-        </div>
+        </Link>
       </div>
       
       <div className="bg-yellow-400 rounded-[70px] p-8 w-[400px] shadow-lg border-4 border-[#e47b31]">
