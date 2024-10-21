@@ -1,10 +1,35 @@
 import React, { useState } from 'react'
 import { User, Lock, Eye, EyeOff } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import { auth } from '../firebase'
 
 export default function LoginPage() {
-
     const [showPassword, setShowPassword] = useState(false)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState(null)
+    const navigate = useNavigate()
+
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        try {
+            await signInWithEmailAndPassword(auth, email, password)
+            navigate('/lobby') 
+        } catch (error) {
+            setError(error.message)
+        }
+    }
+
+    const handleGoogleSignIn = async () => {
+        const provider = new GoogleAuthProvider()
+        try {
+            await signInWithPopup(auth, provider)
+            navigate('/lobby') 
+        } catch (error) {
+            setError(error.message)
+        }
+    }
 
   return (
     <div className="min-h-screen bg-cover bg-center flex items-center justify-center relative" style={{backgroundImage: "url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1728972096/bg1_u5arhl.jpg')"}}>
@@ -28,12 +53,14 @@ export default function LoginPage() {
           />
         </div>
         
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleLogin}>
           <div className="relative">
             <input 
-              type="text" 
-              placeholder="Username" 
+              type="email" 
+              placeholder="Email" 
               className="w-full py-2 px-4 bg-yellow-300 rounded-full text-gray-800 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <User className="absolute right-3 top-2.5 text-gray-600" size={20} />
           </div>
@@ -43,6 +70,8 @@ export default function LoginPage() {
               type={showPassword ? "text" : "password"}
               placeholder="Password" 
               className="w-full py-2 px-4 bg-yellow-300 rounded-full text-gray-800 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button
               type="button"
@@ -53,16 +82,21 @@ export default function LoginPage() {
             </button>
           </div>
           
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+          
           <button 
             type="submit" 
-            className=" ml-24 w-[50%] py-2 px-4 bg-[#e47b31] text-white rounded-full font-bold hover:bg-red-600 transition duration-200 text-base"
+            className="ml-24 w-[50%] py-2 px-4 bg-[#e47b31] text-white rounded-full font-bold hover:bg-red-600 transition duration-200 text-base"
           >
             LOGIN
           </button>
         </form>
         
         <div className="mt-4 ml-20">
-            <button className="bg-blue-500 text-white px-4 py-2 flex items-center border-2 border-white hover:bg-blue-700 h-10 w-48 text-sm">
+            <button 
+              onClick={handleGoogleSignIn}
+              className="bg-blue-500 text-white px-4 py-2 flex items-center border-2 border-white hover:bg-blue-700 h-10 w-48 text-sm"
+            >
               <img src="https://as1.ftcdn.net/v2/jpg/03/88/07/84/1000_F_388078454_mKtbdXYF9cyQovCCTsjqI0gbfu7gCcSp.jpg" alt="Google logo" className="w-5 h-5 mr-2" />
               Sign in with Google
             </button>

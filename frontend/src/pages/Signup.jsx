@@ -1,10 +1,44 @@
 import React, { useState } from 'react'
 import { User, Eye, EyeOff } from 'lucide-react'
-import { Link }  from 'react-router-dom'
+import { Link, useNavigate }  from 'react-router-dom'
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from '../firebase';
 
 export default function SignupPage() {
-
   const [showPassword, setShowPassword] = useState(false)
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    dateOfBirth: '',
+    riotId: '',
+    tagline: '',
+    region: '',
+    password: '',
+  })
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setError('')
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password)
+      await updateProfile(userCredential.user, {
+        displayName: `${formData.firstName} ${formData.lastName}`,
+      })
+      
+      navigate('/') 
+    } catch (error) {
+      setError(error.message)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-cover bg-center flex items-center justify-center relative" style={{backgroundImage: "url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729418841/bg4_i1kg2f.png')"}}>
@@ -30,24 +64,36 @@ export default function SignupPage() {
           </button>
         </div>
         
-        <form className="space-y-4 relative">
+        <form onSubmit={handleSubmit} className="space-y-4 relative">
           <div className="grid grid-cols-2 gap-4">
             <input 
               type="text" 
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
               placeholder="FIRST NAME" 
               className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+              required
             />
             <input 
               type="text" 
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
               placeholder="LAST NAME" 
               className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+              required
             />
           </div>
           
           <input 
             type="email" 
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
             placeholder="EMAIL" 
             className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+            required
           />
           
           <input 
@@ -87,8 +133,12 @@ export default function SignupPage() {
           <div className="relative">
             <input 
               type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               placeholder="SET A PASSWORD" 
               className="ring-2 ring-green-500 w-full py-2 pr-10 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+              required
             />
             <button
               type="button"
@@ -107,6 +157,8 @@ export default function SignupPage() {
               className="ml-5 mt-1"
             />
           </div>
+          
+          {error && <p className="text-red-500 text-sm">{error}</p>}
           
           <button 
             type="submit" 
