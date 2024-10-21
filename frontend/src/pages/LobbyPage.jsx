@@ -1,5 +1,6 @@
 import React from 'react'
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const PlayerCard = ({ image, level, username, color, className }) => (
   <div className={`rounded-lg overflow-hidden border-2 border-${color}-500 relative ${className}`}>
@@ -25,16 +26,17 @@ export default function LobbyPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-cover bg-center relative" style={{backgroundImage: "url('/placeholder.svg?height=1080&width=1920')"}}>
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div className="min-h-screen bg-cover bg-center relative" style={{backgroundImage: "url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729529714/lobby_hmamhg.png')"}}>
+      <div className="absolute inset-0 bg-black bg-opacity-10"></div>
       <div className="relative z-10 p-4">
-        <div className="flex justify-between items-center mb-8">
-          <div className="flex items-center">
-            <img src="/placeholder.svg?height=60&width=180" alt="Valorant Logo" className="h-15 w-45" />
-            <span className="text-white text-xl font-bold ml-2">TEAM-BUILDER</span>
-          </div>
-        </div>
-        <nav className="flex justify-center space-x-4 mb-8">
+      <Link to='/' className="bg-black inline-block rounded p-1">
+          <img 
+            src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729416747/logo_ijecpr.png" 
+            alt="Valorant Logo" 
+            className="h-26 w-40 object-contain"
+          />
+        </Link>
+        <nav className="flex justify-center space-x-4 mb-16">
           {navItems.map((item) => (
             <button
               key={item}
