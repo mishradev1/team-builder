@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { User, Eye, EyeOff } from 'lucide-react'
 import { Link, useNavigate }  from 'react-router-dom'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -52,7 +52,7 @@ export default function SignupPage() {
         </Link>
       </div>
       
-      <div className="bg-green-900 bg-opacity-90 rounded-[70px] p-8 w-[500px] shadow-lg border-4 border-green-400 relative mt-9">
+      <div className="bg-green-900 bg-opacity-90 rounded-[70px] p-8 w-[500px] shadow-lg border-4 border-green-400 relative mt-2">
         <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729449934/signup-bg_jz17r3.png')] bg-center bg-no-repeat opacity-10"></div>
         <h2 className="text-2xl font-bold text-green-400 text-center mb-6">SIGN-UP:TEAM BUILDER</h2>
         <div className="flex justify-center mb-6 relative">
@@ -155,6 +155,7 @@ export default function SignupPage() {
               type="checkbox" 
               id="terms" 
               className="ml-5 mt-1"
+              required
             />
           </div>
           
@@ -166,13 +167,13 @@ export default function SignupPage() {
           >
             SIGN-UP
           </button>
-
+{/* 
           <div className="mt-5 ml-32">
             <button className="bg-blue-500 text-white px-4 py-2 flex items-center border-2 border-white hover:bg-blue-700 h-10 w-48 text-sm">
               <img src="https://as1.ftcdn.net/v2/jpg/03/88/07/84/1000_F_388078454_mKtbdXYF9cyQovCCTsjqI0gbfu7gCcSp.jpg" alt="Google logo" className="w-5 h-5 mr-2" />
               Sign in with Google
             </button>
-        </div>
+        </div> */}
 
         </form>
       </div>
