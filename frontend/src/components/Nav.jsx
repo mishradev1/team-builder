@@ -24,6 +24,7 @@ export default function ValorantNav() {
     { name: 'ARSENAL', items: ['Crosshairs', 'Leaderboard', 'Premier'], path: '' },
     { name: 'MORE', items: ['News', 'E-Sports', 'Support'] },
     { name: 'DOWNLOAD', items: ['Download Valorant'], path: '' },
+    { name: 'ROLES', items: ['ROLE-INFO'], path: '/role-info' },
   ]
   const authItems = [
     { name: 'LOGIN', path: '/login' },

@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from "../component/Header";
-import ValorantMainContent from '../component/Content'
-import ValorantNav from '../component/Nav'
+import Header from "../components/Header";
+import ValorantMainContent from '../components/Content'
+import ValorantNav from '../components/Nav'
 
 export const Home = () => {
   return (
