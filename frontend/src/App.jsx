@@ -7,6 +7,7 @@ import SignupPage from './pages/Signup'
 import { AuthProvider } from './contexts/AuthContext'
 import PrivateRoute from './components/PrivateRoute'
 import RoleInfo from './pages/RoleInfo'
+import TeamBuilderPage from './pages/Console'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/role-info" element={<RoleInfo />} />
+              <Route path="/console" element={<TeamBuilderPage />} />
               <Route path='/lobby' element={
                 <PrivateRoute>
                   <LobbyPage />

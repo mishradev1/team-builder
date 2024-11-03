@@ -1,5 +1,6 @@
 import React from 'react'
 import { Search } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function ValorantMainContent() {
   return (
@@ -46,9 +47,11 @@ export default function ValorantMainContent() {
               </div> */}
             </div>
             <div className="flex flex-col items-center">
+              <Link to = "/console">
               <button className="bg-red-600 text-white font-bold py-2 px-4 rounded-md mb-4 z-10 border-yellow-500 border-4 hover:bg-red-700">
                 TEAM BUILDER
               </button>
+              </Link>
               <div className="relative">
                 <img 
                   src="https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729101162/Lineups_onh5ju.png" 
