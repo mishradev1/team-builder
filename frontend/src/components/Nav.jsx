@@ -11,7 +11,7 @@ const DropdownMenu = ({ items }) => (
         style={{ fontFamily: "'Courier New', monospace", letterSpacing: '0.05em' }}
       >
         {item}
-      </button>
+      </button> 
     ))}
   </div>
 )
