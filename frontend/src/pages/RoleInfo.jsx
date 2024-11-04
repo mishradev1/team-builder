@@ -48,7 +48,7 @@ export default function RoleInfo() {
               {roles.map((agent) => (
                 <Link
                   key={agent.name}
-                  to={`/agents/${agent.name.toLowerCase()}`}
+                  to={`/roles/${agent.role.toLowerCase()}`}
                 >
                   <Card className="group relative h-[500px] overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl bg-black/10 backdrop-blur-sm border-rounded">
                     <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -21,9 +21,9 @@ export default function ValorantNav() {
 
   const navItems = [
     { name: 'TRACKER', items: ['Leaderboard', 'Premier', 'LFG'], path: '' },
-    { name: 'ARSENAL', items: ['Crosshairs', 'Leaderboard', 'Premier'], path: '' },
-    { name: 'MORE', items: ['News', 'E-Sports', 'Support'] },
-    { name: 'DOWNLOAD', items: ['Download Valorant'], path: '' },
+    { name: 'ARSENAL', items: ['Arsenal'], path: '/arsenal' },
+    { name: 'MORE', items: ['News', 'E-Sports', 'Support'], path: ['https://playvalorant.com/en-gb/news/','https://valorantesports.com/en-GB/','https://support-valorant.riotgames.com/hc/en-us/'] },
+    { name: 'DOWNLOAD', items: ['Download Valorant'], path: 'https://playvalorant.com/en-gb/download/' },
     { name: 'ROLES', items: ['ROLE-INFO'], path: '/role-info' },
   ]
   const authItems = [
