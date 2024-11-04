@@ -1,17 +1,43 @@
-import React from 'react'
-import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { db, auth } from '../firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 export default function LobbyPage() {
-  const navItems = ['TRACKER', 'ARSENAL', 'MORE', 'DOWNLOAD']
+  const navItems = ['TRACKER', 'ARSENAL', 'MORE', 'DOWNLOAD'];
+  const [playerName, setPlayerName] = useState(''); // Default value for the middle card
+  const [level, setLevel] = useState('55'); // Default level for the middle card
+
+  useEffect(() => {
+    const fetchPlayerData = async () => {
+      try {
+        const user = auth.currentUser;
+        if (user) {
+          const userDocRef = doc(db, 'users', user.uid, 'teambuild', 'data');
+          const docSnap = await getDoc(userDocRef);
+          if (docSnap.exists()) {
+            setPlayerName(docSnap.data().playerName || 'Jett_Wind');
+            setLevel(docSnap.data().level || '55');
+          }
+        } else {
+          console.log('No user is signed in');
+        }
+      } catch (error) {
+        console.error('Error fetching player data:', error);
+      }
+    };
+
+    fetchPlayerData();
+  }, []);
 
   const players = [
-    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729532856/img1_jiui9q.png', level: '42', username: 'Reyna_Main', Rate:'1.4', PreferredWeapon: 'Vandal', PreferredRole: 'Duelist', PreferredAgent:'Reyna', rank: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png'},
-    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1730641830/img2_hyzzwb.png', level: '38', username: 'Neon_Spark', Rate:'1.3', PreferredWeapon: 'Phantom', PreferredRole: 'Duelist', PreferredAgent:'Neon', rank: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png' },
-    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530434/img3_wzzpe9.png', level: '55', username: 'Jett_Wind', Rate:'1.5', PreferredWeapon: 'Vandal', PreferredRole: 'Duelist', PreferredAgent:'FlyingJaat', rank: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png' },
-    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1730642615/img4_pskgvr.png', level: '47', username: 'Omen_Shadow', Rate:'1.6', PreferredWeapon: 'Guardian', PreferredRole: 'Controller', PreferredAgent:'Omen', rank: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png' },
-    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1730641961/img5_kwme6f.png', level: '51', username: 'Raze_Boom', Rate:'1.7', PreferredWeapon: 'Vandal', PreferredRole: 'Duelist', PreferredAgent:'Raze', rank: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png' },
-  ]
+    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729532856/img1_jiui9q.png', level: '42', username: 'Reyna_Main', Rate: '1.4', PreferredWeapon: 'Vandal', PreferredRole: 'Duelist', PreferredAgent: 'Reyna', rank: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png' },
+    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1730641830/img2_hyzzwb.png', level: '38', username: 'Neon_Spark', Rate: '1.3', PreferredWeapon: 'Phantom', PreferredRole: 'Duelist', PreferredAgent: 'Neon', rank: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png' },
+    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530434/img3_wzzpe9.png', level, username: playerName, Rate: '1.5', PreferredWeapon: 'Vandal', PreferredRole: 'Duelist', PreferredAgent: 'FlyingJaat', rank: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png' },
+    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1730642615/img4_pskgvr.png', level: '47', username: 'Omen_Shadow', Rate: '1.6', PreferredWeapon: 'Guardian', PreferredRole: 'Controller', PreferredAgent: 'Omen', rank: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png' },
+    { image: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1730641961/img5_kwme6f.png', level: '51', username: 'Raze_Boom', Rate: '1.7', PreferredWeapon: 'Vandal', PreferredRole: 'Duelist', PreferredAgent: 'Raze', rank: 'https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729530636/silver_hduzwi.png' },
+  ];
 
   return (
     <div className="h-screen overflow-hidden bg-center relative" style={{ backgroundImage: "url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729529714/lobby_hmamhg.png')", backgroundSize: 'cover' }}>
