@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import ValorantNav from "@/components/Nav";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
@@ -33,6 +34,7 @@ export default function RoleInfo() {
   return (
     <div className="min-h-screen flex flex-col text-white">
       <Header />
+      {/* <ValorantNav/> */}
       <main>
         <div
           className="min-h-screen w-full bg-cover bg-center bg-no-repeat"

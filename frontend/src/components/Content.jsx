@@ -1,8 +1,10 @@
 import React from 'react'
 import { Search } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 
 export default function ValorantMainContent() {
+  
   return (
     <div className="bg-cover bg-center min-h-screen" style={{backgroundImage: "url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1728972095/Valorant_cqsvrm.png')"}}>
       <div className="bg-black bg-opacity-5 min-h-screen p-6 text-white flex flex-col items-center">
