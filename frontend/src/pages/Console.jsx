@@ -652,8 +652,8 @@ export default function TeamBuilderPage() {
                      <option>Immortal 3</option>
                      <option>Radiant</option>
                     </select>
-                   <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-black text-xl font-bold pointer-events-none" />
-                 </div>
+                    {/* <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-black text-xl font-bold pointer-events-none" /> */}
+                    </div>
 
                 <div className="relative w-[220px]">
                     <select
@@ -689,7 +689,7 @@ export default function TeamBuilderPage() {
                     <option>Immortal 3</option>
                     <option>Radiant</option>
                   </select>
-                  <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-black text-xl font-bold pointer-events-none" />
+                  {/* <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-black text-xl font-bold pointer-events-none" /> */}
                 </div>
 
                 <div className="relative w-[220px]">
@@ -723,7 +723,7 @@ export default function TeamBuilderPage() {
                     <option>Gekko</option>
                     <option>Deadlock</option>
                   </select>
-                  <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-black text-xl font-bold pointer-events-none" />
+                  {/* <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-black text-xl font-bold pointer-events-none" /> */}
                 </div>
 
                 <div className="relative w-[220px]">
@@ -792,7 +792,7 @@ export default function TeamBuilderPage() {
                     <option>Middle East (ME)</option>
                     <option>South Asia (SA)</option>
                   </select>
-                  <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-black text-xl font-bold pointer-events-none" />
+                  {/* <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-black text-xl font-bold pointer-events-none" /> */}
                 </div>
                 <div className="relative w-[220px]">
                   <select
@@ -806,7 +806,7 @@ export default function TeamBuilderPage() {
                     <option>Hindi</option>
                     <option>Espanol</option>
                   </select>
-                  <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-black text-xl font-bold pointer-events-none" />
+                  {/* <IoIosArrowDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-black text-xl font-bold pointer-events-none" /> */}
                 </div>
               </div>
 
