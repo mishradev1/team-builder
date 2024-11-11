@@ -8,7 +8,7 @@ import { AuthProvider } from './contexts/AuthContext'
 import PrivateRoute from './components/PrivateRoute'
 import RoleInfo from './pages/RoleInfo'
 import TeamBuilderPage from './pages/Console'
-import ControllerPage from './pages/ControllerPage'
+// import ControllerPage from './pages/ControllerPage'
 
 const App = () => {
   return (
@@ -22,7 +22,7 @@ const App = () => {
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/role-info" element={<RoleInfo />} />
               <Route path="/console" element={<TeamBuilderPage />} />
-              <Route path="/roles/controller" element={<ControllerPage />} />
+              {/* <Route path="/roles/controller" element={<ControllerPage />} /> */}
               <Route path='/lobby' element={
                 <PrivateRoute>
                   <LobbyPage />
