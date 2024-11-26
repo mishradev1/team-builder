@@ -191,7 +191,7 @@ import { useState } from 'react'
 import { User, Eye, EyeOff } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db } from '../firebase'; // Ensure db is imported from your Firebase config
+import { auth, db } from '../firebase'; 
 import { collection, addDoc } from "firebase/firestore";
 import { setDoc, doc } from "firebase/firestore"; 
 
@@ -216,39 +216,71 @@ export default function SignupPage() {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
+    e.preventDefault();
+    setError('');
+
+    // Validation: Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+        setError('Please enter a valid email address');
+        return;
+    }
+
+    // Validation: Password length
+    if (formData.password.length < 6) {
+        setError('Password must be at least 6 characters long');
+        return;
+    }
+
+    // Validation: Phone number (only numbers and 10 digits)
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(formData.phoneNumber)) {
+        setError('Phone number must be 10 digits and contain only numbers');
+        return;
+    }
+
+     // Validation: Age restriction (at least 16 years old based on selected date)
+     const selectedDate = new Date(formData.dateOfBirth); // Replace with your date field
+     const today = new Date();
+     const sixteenYearsAgo = new Date();
+     sixteenYearsAgo.setFullYear(today.getFullYear() - 16);
+ 
+     if (selectedDate > sixteenYearsAgo) {
+         setError('The selected date must indicate you are at least 16 years old.');
+         return;
+     }
 
     try {
-      // Create a new user in Firebase Authentication
-      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password)
-      
-      // Update user profile with displayName in Authentication
-      await updateProfile(userCredential.user, {
-        displayName: `${formData.firstName} ${formData.lastName}`,
-      })
+        // Create a new user in Firebase Authentication
+        const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
 
-      // Save the user info in Firestore, excluding password
-      await setDoc(doc(db, 'users', userCredential.user.uid), {
-        uid: userCredential.user.uid,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        phoneNumber: formData.phoneNumber,
-        dateOfBirth: formData.dateOfBirth,
-        riotId: formData.riotId,
-        tagline: formData.tagline,
-        region: formData.region,
-        createdAt: new Date(),
-    });
+        // Update user profile with displayName in Authentication
+        await updateProfile(userCredential.user, {
+            displayName: `${formData.firstName} ${formData.lastName}`,
+        });
 
-      // Navigate to the console page after successful signup
-      navigate('/console') 
+        // Save the user info in Firestore, excluding password
+        await setDoc(doc(db, 'users', userCredential.user.uid), {
+            uid: userCredential.user.uid,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phoneNumber: formData.phoneNumber,
+            dateOfBirth: formData.dateOfBirth,
+            riotId: formData.riotId,
+            tagline: formData.tagline,
+            region: formData.region,
+            createdAt: new Date(),
+        });
+
+        // Navigate to the console page after successful signup
+        navigate('/console');
     } catch (error) {
-      console.error('Firebase Signup Error:', error);
-      setError(error.message);
+        console.error('Firebase Signup Error:', error);
+        setError(error.message);
     }
-}
+};
+
 
   return (
     <div className="min-h-screen bg-cover bg-center flex items-center justify-center relative" style={{backgroundImage: "url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1729418841/bg4_i1kg2f.png')"}}>
@@ -285,7 +317,6 @@ export default function SignupPage() {
               onChange={handleChange}
               placeholder="LAST NAME" 
               className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
-              required
             />
           </div>
           
@@ -313,6 +344,7 @@ export default function SignupPage() {
             name="dateOfBirth"
             value={formData.dateOfBirth}
             onChange={handleChange}
+            max={new Date().toISOString().split('T')[0]} // Prevent future dates
             placeholder="DATE OF BIRTH" 
             className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
           />
