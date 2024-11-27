@@ -192,7 +192,6 @@ import { User, Eye, EyeOff } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from '../firebase'; 
-import { collection, addDoc } from "firebase/firestore";
 import { setDoc, doc } from "firebase/firestore"; 
 
 export default function SignupPage() {
@@ -274,7 +273,7 @@ export default function SignupPage() {
         });
 
         // Navigate to the console page after successful signup
-        navigate('/console');
+        navigate('/login');
     } catch (error) {
         console.error('Firebase Signup Error:', error);
         setError(error.message);
@@ -344,7 +343,7 @@ export default function SignupPage() {
             name="dateOfBirth"
             value={formData.dateOfBirth}
             onChange={handleChange}
-            max={new Date().toISOString().split('T')[0]} // Prevent future dates
+            max={new Date(new Date().setFullYear(new Date().getFullYear() - 16)).toISOString().split('T')[0]}
             placeholder="DATE OF BIRTH" 
             className="ring-2 ring-green-500 w-full py-2 px-4 bg-green-800 bg-opacity-50 rounded-full text-green-400 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
           />

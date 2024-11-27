@@ -9,17 +9,15 @@ export default function ValorantMainContent() {
 
   // Google sign-in handler
   const handleGoogleSignIn = async () => {
-    const provider = new GoogleAuthProvider();
+    const provider = new GoogleAuthProvider()
     try {
-      const result = await signInWithPopup(auth, provider);
-      console.log('User signed in:', result.user);
-      
-      // Navigate to another page or set user state
-      navigate('/dashboard'); // Redirect to a dashboard or home page after successful sign-in
+        await signInWithPopup(auth, provider)
+        navigate('/console') 
     } catch (error) {
-      console.error('Google sign-in error:', error);
+      console.log(error);
     }
-  };
+  }
+
 
   return (
     <div className="bg-cover bg-center min-h-screen" style={{ backgroundImage: "url('https://res.cloudinary.com/dbt5dmcu2/image/upload/v1728972095/Valorant_cqsvrm.png')" }}>
